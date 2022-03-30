@@ -16,26 +16,5 @@ class barMiaNoaController extends Controller
     {
         return $barMiaNoa;
     }
-    
-    public function store(Request $request)
-    {
 
-        $barMiaNoa = BarMIaNoa::create($request->json()->all());
-
-        return response()->json($barMiaNoa, 201);
-    }
-
-    public function update(Request $request, BarMIaNoa $barMiaNoa)
-    {
-        $barMiaNoa->update($request->all());
-
-        return response()->json($barMiaNoa, 200);
-    }
-
-    public function delete(BarMIaNoa $barMiaNoa)
-    {
-        $barMiaNoa->delete();
-
-        return response()->json(null, 204);
-    }
 }
