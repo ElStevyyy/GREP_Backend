@@ -41,4 +41,12 @@ class Adress extends Model
 		'longitude',
 		'latitude'
 	];
+
+	/**
+	 * Relation avec Etablissement
+	 */
+
+	 public function etablissement(){
+		 return $this->hasOne(Etablissement::class);
+	 }
 }
