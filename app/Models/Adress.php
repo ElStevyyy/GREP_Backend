@@ -6,17 +6,20 @@
 
 namespace App\Models;
 
+use Illuminate\Database\Eloquent\Collection;
 use Illuminate\Database\Eloquent\Model;
 
 /**
  * Class Adress
  * 
- * @property int $IDPOSITION
- * @property string $ADRESSE
- * @property string|null $NPA
- * @property string|null $DESCRIPTIONLIEU
+ * @property int $idAdresse
+ * @property string $adresse
+ * @property string|null $npa
+ * @property string|null $descriptionLieu
  * @property float|null $longitude
  * @property float|null $latitude
+ * 
+ * @property Collection|Etablissement[] $etablissements
  *
  * @package App\Models
  */
@@ -24,29 +27,26 @@ class Adress extends Model
 {
 	protected $connection = 'mysql';
 	protected $table = 'adresses';
-	protected $primaryKey = 'IDPOSITION';
+	protected $primaryKey = 'idAdresse';
 	public $incrementing = false;
 	public $timestamps = false;
 
 	protected $casts = [
-		'IDPOSITION' => 'int',
+		'idAdresse' => 'int',
 		'longitude' => 'float',
 		'latitude' => 'float'
 	];
 
 	protected $fillable = [
-		'ADRESSE',
-		'NPA',
-		'DESCRIPTIONLIEU',
+		'adresse',
+		'npa',
+		'descriptionLieu',
 		'longitude',
 		'latitude'
 	];
 
-	/**
-	 * Relation avec Etablissement
-	 */
-
-	 public function etablissement(){
-		 return $this->hasOne(Etablissement::class);
-	 }
+	public function etablissements()
+	{
+		return $this->hasMany(Etablissement::class);
+	}
 }
