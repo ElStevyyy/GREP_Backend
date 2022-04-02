@@ -5,6 +5,8 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\juridiquesController;
 use App\Http\Controllers\nogaController;
 use App\Http\Controllers\adresseController;
+use App\Http\Controllers\EtablissementController;
+use App\Http\Controllers\barMiaNoaController;
 
 
 /*
@@ -21,6 +23,7 @@ Route::get('bars', [barMiaNoaController::class,'index']);
 Route::get('bars/{barMiaNoa}', [barMiaNoaController::class,'show']);
 Route::get('juridiques', [juridiquesController::class,'index']);
 Route::get('nogas', [nogaController::class,'index']);
+Route::get('etablissement', [EtablissementController::class,'index']);
 
 Route::post('bars/adresse/updateAll', [adresseController::class, 'updateAll']);
 
