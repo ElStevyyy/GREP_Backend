@@ -33,8 +33,8 @@ class adresseController extends Controller
 
             $apiResult = json_decode($json, true);
             //Infos :
-            $adresse -> latitude = $apiResult['data'][0]['longitude'] ?? "";
-            $adresse -> longitude = $apiResult['data'][0]['latitude'] ?? "";
+            $adresse -> longitude = $apiResult['data'][0]['longitude'] ?? "";
+            $adresse -> latitude = $apiResult['data'][0]['latitude'] ?? "";
 
             $adresse->save();
         }
