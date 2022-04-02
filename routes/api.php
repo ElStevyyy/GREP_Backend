@@ -5,6 +5,9 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\juridiquesController;
 use App\Http\Controllers\nogaController;
 use App\Http\Controllers\adresseController;
+use App\Http\Controllers\barMiaNoaController;
+use App\Http\Controllers\etablissementController;
+
 
 
 /*

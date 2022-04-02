@@ -64,4 +64,19 @@ class Etablissement extends Model
 		'raisonSocial',
 		'immaDt'
 	];
+
+	/**
+	 * Relation avec Adresse
+	 */
+
+	public function adresse(){
+		return $this->hasOne(Adress::class);
+	}
+
+	/**
+	 * Relation avec Juridique
+	 */
+	public function juridique(){
+		return $this->hasOne(juridiques::class);
+	}
 }
