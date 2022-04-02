@@ -20,6 +20,11 @@ $table->float('natureJuridique');
 });
 }
 
+public function etablissements()
+	{
+		return $this->hasMany(Etablissement::class);
+	}
+
 /**
 * Reverse the migrations.
 *

@@ -17,7 +17,7 @@ class adresseController extends Controller
             //API GEOCODING
             $queryString = http_build_query([
                 'access_key' => '126f753997e754bae2f5b143c053b9ac',
-                'query' => $adresse->ADRESSE,
+                'query' => $adresse->adresse,
                 'region' => 'Geneva',
                 'fields' => 'results.longitude, results.latitude',
                 'output' => 'json',

@@ -6,12 +6,13 @@
 
 namespace App\Models;
 
+use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Model;
 
 /**
  * Class Etablissement
  * 
- * @property int|null $idEtablissement
+ * @property int $idEtablissement
  * @property int|null $idAdresse
  * @property int|null $idTaille
  * @property int|null $idJuridique
@@ -27,7 +28,11 @@ use Illuminate\Database\Eloquent\Model;
  * @property string|null $siteInternet
  * @property string|null $numIde
  * @property string|null $raisonSocial
- * @property string|null $immaDt
+ * @property Carbon|null $immaDt
+ * 
+ * @property Adress|null $adress
+ * @property Juridique|null $juridique
+ * @property Taille|null $taille
  *
  * @package App\Models
  */
@@ -35,6 +40,7 @@ class Etablissement extends Model
 {
 	protected $connection = 'mysql';
 	protected $table = 'etablissements';
+	protected $primaryKey = 'idEtablissement';
 	public $incrementing = false;
 	public $timestamps = false;
 
@@ -45,8 +51,11 @@ class Etablissement extends Model
 		'idJuridique' => 'int'
 	];
 
+	protected $dates = [
+		'immaDt'
+	];
+
 	protected $fillable = [
-		'idEtablissement',
 		'idAdresse',
 		'idTaille',
 		'idJuridique',
@@ -65,18 +74,18 @@ class Etablissement extends Model
 		'immaDt'
 	];
 
-	/**
-	 * Relation avec Adresse
-	 */
-
-	public function adresse(){
-		return $this->hasOne(Adress::class);
+	public function adress()
+	{
+		return $this->belongsTo(Adress::class, 'idAdresse');
 	}
 
-	/**
-	 * Relation avec Juridique
-	 */
-	public function juridique(){
-		return $this->hasOne(juridiques::class);
+	public function juridique()
+	{
+		return $this->belongsTo(Juridique::class, 'idJuridique');
+	}
+
+	public function taille()
+	{
+		return $this->belongsTo(Taille::class, 'idTaille');
 	}
 }
