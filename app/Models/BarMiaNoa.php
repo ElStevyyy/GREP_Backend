@@ -7,6 +7,8 @@ use Illuminate\Database\Eloquent\Model;
 
 class BarMiaNoa extends Model
 {
+	protected $fillable = ["Latitude",
+				"Longitude"];
     /**
      * Run the migrations.
      *

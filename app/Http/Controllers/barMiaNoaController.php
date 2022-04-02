@@ -19,7 +19,8 @@ class barMiaNoaController extends Controller
     
     public function store(Request $request)
     {
-        $barMiaNoa = BarMIaNoa::create($request->all());
+
+        $barMiaNoa = BarMIaNoa::create($request->json()->all());
 
         return response()->json($barMiaNoa, 201);
     }

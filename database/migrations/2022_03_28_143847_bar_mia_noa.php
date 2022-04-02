@@ -13,12 +13,7 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('BarMiaNoa', function (Blueprint $table) {
-            $table->id();
-            $table->Latitude();
-            $table->Longitude();
-            $table->timestamps();
-        });
+        //
     }
 
     /**
@@ -28,6 +23,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('BarMiaNoa');
+        //
     }
 };
