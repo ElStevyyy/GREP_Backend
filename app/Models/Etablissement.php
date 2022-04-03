@@ -70,7 +70,8 @@ class Etablissement extends Model
 	 */
 
 	public function adresse(){
-		return $this->hasOne(Adress::class);
+		
+		return $this->belongsTo(Adress::class, 'IDPOSITION',);
 	}
 
 	/**

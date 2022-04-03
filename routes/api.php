@@ -23,7 +23,7 @@ Route::get('bars', [barMiaNoaController::class,'index']);
 Route::get('bars/{barMiaNoa}', [barMiaNoaController::class,'show']);
 Route::get('juridiques', [juridiquesController::class,'index']);
 Route::get('nogas', [nogaController::class,'index']);
-Route::get('etablissement', [EtablissementController::class,'index']);
+Route::get('search', [EtablissementController::class,'index']);
 
 Route::post('bars/adresse/updateAll', [adresseController::class, 'updateAll']);
 
