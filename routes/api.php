@@ -27,6 +27,8 @@ Route::get('search', [EtablissementController::class,'index']);
 
 Route::post('bars/adresse/updateAll', [adresseController::class, 'updateAll']);
 
+Route::get('etablissement/adresse', [etablissementController::class,'testAdresse']);
+
 Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
