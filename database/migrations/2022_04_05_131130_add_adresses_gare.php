@@ -13,12 +13,12 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::enableForeignKeyConstraints();
-        Schema::table('etablissements', function (Blueprint $table){
-            $table->foreignId('idAdresse')->references('idAdresse')->on('adresses');
-            $table->foreignId('idTaille')->references('idTaille')->on('tailles');
-            $table->foreignId('idJuridique')->references('idJuridique')->on('juridiques');
-        });
+        DB::table('adresses')->where('idAdresse', '=', 17996)->delete();
+
+        DB::table('adresses')->insert([
+            ['idAdresse' => 17996, 'adresse' => 'Pl. de la Gare', 'npa' => '1225', 'descriptionLieu' => 'Entrée côté tour Opale', 'latitude' => 46.1964577, 'longitude' => 6.197314]
+
+        ]);
     }
 
     /**
