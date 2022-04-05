@@ -25,7 +25,7 @@ class EtablissementController extends Controller
         $latitude = filter_var($request->query('latitude'), FILTER_SANITIZE_NUMBER_FLOAT, FILTER_FLAG_ALLOW_FRACTION);
         $radius = filter_var($request->query('radius'), FILTER_SANITIZE_NUMBER_FLOAT, FILTER_FLAG_ALLOW_FRACTION);
 
-        $requestString = "SELECT *, (6371  * acos(cos(radians($latitude)) *cos(radians(latitude)) * cos(radians(longitude) -radians($longitude)) + sin(radians($latitude)) * sin(radians(latitude)))) AS distance FROM etablissements AS eta, adresses AS adr, juridiques AS jur WHERE eta.idAdresse = adr.idAdresse AND jur.idJuridique = eta.idJuridique";
+        $requestString = "SELECT *, (6371  * acos(cos(radians($latitude)) *cos(radians(latitude)) * cos(radians(longitude) -radians($longitude)) + sin(radians($latitude)) * sin(radians(latitude)))) AS distance FROM etablissements AS eta, adresses AS adr, juridiques AS jur, tailles as tai WHERE eta.idAdresse = adr.idAdresse AND jur.idJuridique = eta.idJuridique AND eta.idTaille = tai.idTaille";
 
         if($request->query('taille')){
             $taille = $request->query("taille");
@@ -53,7 +53,6 @@ class EtablissementController extends Controller
             if(!is_array($arrayNoga)){
                 return response()->json(['error' => 'Please provide an array of noga'], 400);
             }
-            $arrayNoga = array_map('intval', $arrayNoga);
             $requestString .= " AND (";
             foreach($arrayNoga as $no){
                 #get the first two characters of the noga
@@ -89,9 +88,10 @@ class EtablissementController extends Controller
       
         
         $radius = $radius / 1000;
-        $requestString = $requestString . " HAVING distance < $radius ORDER BY distance ASC";
+        $requestString = $requestString . " HAVING distance < $radius ORDER BY distance ASC LIMIT 0, 500";
         $etablissement = \DB::select(\DB::raw("$requestString"));
         return $etablissement;
         
     }
+
 }
