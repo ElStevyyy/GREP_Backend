@@ -91,6 +91,12 @@ class EtablissementController extends Controller
         $radius = $radius / 1000;
         $requestString = $requestString . " HAVING distance < $radius ORDER BY distance ASC";
         $etablissement = \DB::select(\DB::raw("$requestString"));
+        $etablissementTrue = Etablissement::selectRaw("$requestString");
+        //echo($etablissementTrue);
+        /**foreach($etablissementTrue as $e){
+            echo($e->adress->adresse);
+        }
+        */
         return $etablissement;
         
     }

@@ -28,7 +28,7 @@ class Adress extends Model
 	protected $connection = 'mysql';
 	protected $table = 'adresses';
 	protected $primaryKey = 'idAdresse';
-	public $incrementing = false;
+	public $incrementing = true;
 	public $timestamps = false;
 
 	protected $casts = [
