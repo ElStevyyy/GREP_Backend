@@ -36,7 +36,7 @@ class EtablissementController extends Controller
             $arrayTaille = array_map('intval', $arrayTaille);
             $requestString .= " AND (";
             foreach($arrayTaille as $t){
-                $requestString .= " idTaille = $t OR";
+                $requestString .= " tai.idTaille = $t OR";
             }
             $requestString = substr($requestString, 0, strlen($requestString)-2);
             $requestString .= ")";
