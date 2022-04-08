@@ -50,7 +50,7 @@ class APITest extends TestCase
     }
     
     public function test_search(){
-        $response = $this->get('http://172.105.245.5/api/search?taille=&noga=9496&natureJuridique=&longitude=6.136097248177379&latitude=46.19683777664278&radius=3039.28537165674');
+        $response = $this->get('http://172.105.245.5/api/search?&noga=9496&longitude=6.136097248177379&latitude=46.19683777664278&radius=3039.28537165674');
 
         $response->assertStatus(200);
         
