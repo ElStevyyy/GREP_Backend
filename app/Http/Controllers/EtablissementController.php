@@ -47,6 +47,7 @@ class EtablissementController extends Controller
             $requestString .= " AND idAdresse NOT IN (SELECT idAdresse FROM exclusions WHERE idZone = $zoneExclusion)";
         }*/
 
+       
         if($request->query('noga')){
             $noga = $request->query("noga");
             $arrayNoga = explode(",", $noga);
@@ -86,9 +87,27 @@ class EtablissementController extends Controller
             $requestString .= ")";
         }
       
-        
+        if ($request->query('distinct')) {
+            $requestString .= " AND raisonSocialParent IS NULL";
+        }
+        if ($request->query('emailNotNull')) {
+            $requestString .= " AND email IS NOT NULL";
+        }
+
         $radius = $radius / 1000;
-        $requestString = $requestString . " HAVING distance < $radius ORDER BY distance ASC LIMIT 0, 500";
+        $requestString = $requestString . " HAVING distance < $radius ORDER BY distance ASC";
+        
+        if ($request->query('limit')) {
+            //Filter limit
+            $limit = filter_var($request->query('limit'), FILTER_SANITIZE_NUMBER_INT);
+            //check if limit is a number
+            if(!is_numeric($limit)){
+                return response()->json(['error' => 'Please provide a number for limit'], 400);
+            }
+            $requestString = $requestString . " LIMIT 0, $limit";
+        } else{
+            $requestString = $requestString . " LIMIT 0, 500";
+        }
         $etablissement = \DB::select(\DB::raw("$requestString"));
         $etablissementTrue = Etablissement::selectRaw("$requestString");
         //echo($etablissementTrue);
