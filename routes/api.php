@@ -7,6 +7,7 @@ use App\Http\Controllers\nogaController;
 use App\Http\Controllers\tailleController;
 use App\Http\Controllers\adresseController;
 use App\Http\Controllers\EtablissementController;
+use App\Http\Controllers\CalculatorController;
 use App\Http\Controllers\barMiaNoaController;
 
 
@@ -26,10 +27,10 @@ Route::get('juridiques', [juridiquesController::class,'index']);
 Route::get('nogas', [nogaController::class,'index']);
 Route::get('tailles', [tailleController::class,'index']);
 Route::get('search', [EtablissementController::class,'index']);
+Route::get('calculerDistance', [CalculatorController::class,'index']);
 
 Route::post('bars/adresse/updateAll', [adresseController::class, 'updateAll']);
 
-Route::get('etablissement/adresse', [etablissementController::class,'testAdresse']);
 
 Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
