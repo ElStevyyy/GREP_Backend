@@ -8,6 +8,16 @@ use Illuminate\Database\Eloquent\Model;
 class Bars extends Model
 {
 
+/**
+ * Class Bars - Model bdd pour un Bar
+ * 
+ * @property int $idBar
+ * @property int $idAdress
+ * @property string|null $description
+ * @property string|null $propriétaire
+ *
+ * @package App\Models
+ */
     protected $connection = 'mysql';
 	protected $table = 'bars';
 	protected $primaryKey = 'idBar';
@@ -24,6 +34,9 @@ class Bars extends Model
         'type'
 	];
 
+	/**
+	 * Relation du Bar à une adresse spécifique
+	 */
     public function adress()
 	{
 		return $this->belongsTo(Adress::class, 'idAdresse');

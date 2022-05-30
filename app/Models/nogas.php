@@ -7,8 +7,8 @@ use Illuminate\Database\Eloquent\Model;
 
 class nogas extends Model
 {
-    /**
-* Run the migrations.
+/**
+* class nogas - model bdd pour le code noga
 *
 * @return void
 */

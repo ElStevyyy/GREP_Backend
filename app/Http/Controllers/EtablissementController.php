@@ -9,6 +9,12 @@ use App\Models\Etablissement;
 class EtablissementController extends Controller
 {
    
+    /**
+     * Cette fonction permet de rechercher les entreprises selon des critères précis soumis par l'utilisateur sur le frontend. Le format de la recherche repose sur la construction d'une
+     * requête SQL selon les différents champs disponibles. Lorsque la requête est complété, celle-ci est utilisé pour faire une recherche sur toutes les Entreprises demandés directement dans la base de donnée MySQL
+     * 
+     * @param Request $request : ce paramètre comprend les arguments pris en compte par l'utilisateur lors du lancement de la recherche des entreprises
+     */
     public function index(Request $request)
     {
         $longitude;

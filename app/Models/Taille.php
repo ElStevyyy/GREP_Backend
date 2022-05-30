@@ -10,7 +10,7 @@ use Illuminate\Database\Eloquent\Collection;
 use Illuminate\Database\Eloquent\Model;
 
 /**
- * Class Taille
+ * Class Taille - model bdd pour les formats de tailles
  * 
  * @property int $idTaille
  * @property string|null $taille

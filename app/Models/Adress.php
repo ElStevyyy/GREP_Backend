@@ -10,7 +10,7 @@ use Illuminate\Database\Eloquent\Collection;
 use Illuminate\Database\Eloquent\Model;
 
 /**
- * Class Adress
+ * Class Adress - Model bdd pour un Bar
  * 
  * @property int $idAdresse
  * @property string $adresse
