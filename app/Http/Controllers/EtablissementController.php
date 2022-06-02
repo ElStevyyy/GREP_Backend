@@ -42,11 +42,6 @@ class EtablissementController extends Controller
             $requestString .= ")";
         } 
 
-        /*if($request->has('zoneExclusion')){
-            $zoneExclusion -> $request->query("zoneExclusion");
-            $requestString .= " AND idAdresse NOT IN (SELECT idAdresse FROM exclusions WHERE idZone = $zoneExclusion)";
-        }*/
-
        
         if($request->query('noga')){
             $noga = $request->query("noga");
