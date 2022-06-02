@@ -105,6 +105,16 @@ class EtablissementController extends Controller
             if(!is_numeric($limit)){
                 return response()->json(['error' => 'Please provide a number for limit'], 400);
             }
+            //set the limit between 1 and 1000
+            if($limit > 1000){
+                $limit = 1000;
+            }
+            if($limit < 1){
+                $limit = 1;
+            }
+            //remove decimal part
+            $limit = intval($limit);
+            
             $requestString = $requestString . " LIMIT 0, $limit";
         } else{
             $requestString = $requestString . " LIMIT 0, 500";
