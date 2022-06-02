@@ -8,7 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 class juridiques extends Model
 {
 /**
-* Run the migrations.
+* class juridiques - model bdd pour la nature juridique
 *
 * @return void
 */
