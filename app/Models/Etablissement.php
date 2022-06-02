@@ -10,7 +10,7 @@ use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Model;
 
 /**
- * Class Etablissement
+ * Class Etablissement - model bdd pour un etablissement/entreprise
  * 
  * @property int $idEtablissement
  * @property int|null $idAdresse

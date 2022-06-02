@@ -6,6 +6,13 @@ use Illuminate\Http\Request;
 
 class CalculatorController extends Controller
 {
+
+    /**
+     * Utilise l'API RoutingAPI de Bing afin de calculer une distance de route entre deux adresses spécifiques
+     * 
+     * @param Request $request : Informations sur l'adresse de départ et celle d'arrivée
+     * @return : L'information sur le temps de route sous format JSON
+     */
     public function index(Request $request)
     {
 
